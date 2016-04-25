@@ -14,13 +14,33 @@
             "component": "filesystem/ReadFile",
             "metadata": {
                 "label": "ReadFile",
-                "x": 756,
+                "x": 720,
                 "y": 144,
                 "width": 72,
                 "height": 72
             }
         },
-        "core/Output_e7if1": {
+        "core/Output_9vv2u": {
+            "component": "core/Output",
+            "metadata": {
+                "label": "Output",
+                "x": 900,
+                "y": 288,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "filesystem/WriteFile_hc6mw": {
+            "component": "filesystem/WriteFile",
+            "metadata": {
+                "label": "WriteFile",
+                "x": 720,
+                "y": 288,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Output_w3jpj": {
             "component": "core/Output",
             "metadata": {
                 "label": "Output",
@@ -34,11 +54,46 @@
     "connections": [
         {
             "src": {
+                "process": "filesystem/WriteFile_hc6mw",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Output_9vv2u",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
                 "process": "filesystem/ReadFile_gcxe2",
                 "port": "out"
             },
             "tgt": {
-                "process": "core/Output_e7if1",
+                "process": "core/Output_w3jpj",
+                "port": "in"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "filesystem/WriteFile_hc6mw",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Output_9vv2u",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "filesystem/WriteFile_hc6mw",
+                "port": "load"
+            },
+            "tgt": {
+                "process": "core/Output_9vv2u",
                 "port": "in"
             },
             "metadata": {}
@@ -51,7 +106,21 @@
             }
         },
         {
-            "data": "package.json",
+            "data": "test_file",
+            "tgt": {
+                "process": "filesystem/WriteFile_hc6mw",
+                "port": "filename"
+            }
+        },
+        {
+            "data": "content1",
+            "tgt": {
+                "process": "filesystem/WriteFile_hc6mw",
+                "port": "in"
+            }
+        },
+        {
+            "data": "test_file",
             "tgt": {
                 "process": "filesystem/ReadFile_gcxe2",
                 "port": "in"
