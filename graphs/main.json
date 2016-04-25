@@ -1,0 +1,25 @@
+{
+    "properties": {
+        "name": "main",
+        "environment": {
+            "type": "noflo-nodejs"
+        },
+        "icon": ""
+    },
+    "inports": {},
+    "outports": {},
+    "groups": [],
+    "processes": {
+        "filesystem/BaseName_19j4t": {
+            "component": "filesystem/BaseName",
+            "metadata": {
+                "label": "BaseName",
+                "x": 576,
+                "y": 216,
+                "width": 72,
+                "height": 72
+            }
+        }
+    },
+    "connections": []
+}
